@@ -1,5 +1,4 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 import AppCards from './components/AppCards.vue';
@@ -41,10 +40,6 @@ footer{
   
 }
 
-
-main{
-    padding-top: 100px;
-}
 
 .container{
     max-width: 1200px;
@@ -138,25 +133,25 @@ main{
     justify-content: space-between;
 }
 
-.sconti-label{
-    width: 50px;
-    text-align: center;
-    color: white;
-    background-color: red;
-    display: inline-block;
-    bottom: 50px;
-    left: 1px;
-}
+// .sconti-label{
+//     width: 50px;
+//     text-align: center;
+//     color: white;
+//     background-color: red;
+//     display: inline-block;
+//     bottom: 50px;
+//     left: 1px;
+// }
 
-.sostenibilità-label{
-    width: 100px;
-    text-align: center;
-    color: white;
-    background-color: green;
-    display: inline-block;
-    bottom: 50px;
-    left: 55px;
-}
+// .sostenibilità-label{
+//     width: 100px;
+//     text-align: center;
+//     color: white;
+//     background-color: green;
+//     display: inline-block;
+//     bottom: 50px;
+//     left: 55px;
+// }
 
 .content:hover .main-img{
     display: none

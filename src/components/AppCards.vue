@@ -6,16 +6,17 @@ export default {
                 {
                     name: 'RELAXED FIT TEE UNISEX',
                     brand: "Levi's",
-                    prezzoA: "14.99",
-                    prezzoP: "29.99",
+                    prezzoA: "14.99 €",
+                    prezzoP: "29.99 €",
                     img: "./img/1.webp",
                     imgH: "./img/1b.webp",
+                    sconto: "50%",
                     sos: " Sostenibilità"
                 }, 
                 {
                     name: 'ROSES TEE',
                     brand: "Guess",
-                    prezzoA: "20.99",
+                    prezzoA: "20.99 €",
                     prezzoP: "29.99 €",
                     img: "./img/2.webp",
                     imgH: "./img/2b.webp",
@@ -71,8 +72,8 @@ export default {
 </script>
 
 <template>
-<div class="container">
-    <div class="row">
+<div class="container" >
+    <div class="row" >
         <div class="col-33" v-for="card in cards">
             <div class="content">
                 <div>
@@ -88,11 +89,37 @@ export default {
                     </div>
                     <p>{{ card.brand }}</p>
                     <h4>{{card.name}}</h4>
-                    <span class="prezzo-ora">{{ card.prezzoA }} &#8364;</span>
-                    <span class="prezzo-prima">{{ card.prezzoP}} &#8364;</span>
+                    <span class="prezzo-ora">{{ card.prezzoA }}</span>
+                    <span class="prezzo-prima">{{ card.prezzoP}}</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </template>
+
+<style scoped lang="scss">
+.container{
+    padding-top: 100px;
+}
+
+.sostenibilità-label{
+    width: 100px;
+    text-align: center;
+    color: white;
+    background-color: green;
+    display: inline-block;
+    bottom: 500px;
+    left: 100px;
+}
+
+.absolute{
+   
+    bottom: 100px;
+    left: 0px;
+}
+
+.prezzo-prima{
+    padding-left: 10px;
+}
+</style>
