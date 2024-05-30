@@ -48,4 +48,8 @@ header{
     display: flex;
     flex-wrap: wrap;
 }
+
+li{
+    padding: 10px;
+}
 </style>

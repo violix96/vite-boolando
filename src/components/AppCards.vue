@@ -80,7 +80,7 @@ export default {
                     <img class="main-img" :src="card.img" alt="Prodotto 1">
                     <img class="hover-img" :src="card.imgH" alt="Prodotto1b">
                     <div class="absolute">
-                        <span class=" sconti-label">{{ card.sconto }}</span>
+                        <span class=" sconti-label" v-if="card.sconto!==''">{{ card.sconto }}</span>
                         <span class="sostenibilità-label">{{ card.sos }}</span>
                     </div>
                     <div class="content-like">
