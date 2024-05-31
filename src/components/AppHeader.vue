@@ -1,4 +1,12 @@
-<script setup>
+<script>
+export default {
+
+    methods: {
+          getImagePath(img) {
+              return new URL(`../assets/img/${img}`, import.meta.url).href;
+          }
+      }
+}
 </script>
 
 <template>
@@ -13,13 +21,13 @@
                     </ul>
                 </div>
                 <div class="col-50">
-                    <img class="logo" src="/img/boolean-logo.png" alt="Logo">
+                    <img class="logo" :src="getImagePath('boolean-logo.png')" alt="Logo">
                 </div>
                 <div class="col-25">
                     <ul>
-                        <li><a href=""><img class="logo-user" src="/img/user.png" alt="User"></a></li>
-                        <li><a href=""><img class="logo-user" src="/img/like--v1.png" alt="Like"></a></li>
-                        <li><a href=""><img  class="logo-user" src="/img/shopping-bag.png" alt="shopping-bag"></a></li>
+                        <li><a href=""><img class="logo-user" :src="getImagePath('like--v1.png')" alt="User"></a></li>
+                        <li><a href=""><img class="logo-user" :src="getImagePath('shopping-bag.png')"></a></li>
+                        <li><a href=""><img  class="logo-user" :src="getImagePath('user.png')" alt="shopping-bag"></a></li>
                     </ul>
                 </div>
             </div>

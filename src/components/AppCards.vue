@@ -1,69 +1,76 @@
-<script>
+<script> 
+import productsData from '../assets/db.json' 
 export default {
     data() {
         return {
-            cards: [
-                {
-                    name: 'RELAXED FIT TEE UNISEX',
-                    brand: "Levi's",
-                    prezzoA: "14.99 €",
-                    prezzoP: "29.99 €",
-                    img: "./img/1.webp",
-                    imgH: "./img/1b.webp",
-                    sconto: "50%",
-                    sos: " Sostenibilità"
-                }, 
-                {
-                    name: 'ROSES TEE',
-                    brand: "Guess",
-                    prezzoA: "20.99 €",
-                    prezzoP: "29.99 €",
-                    img: "./img/2.webp",
-                    imgH: "./img/2b.webp",
-                    sconto: "30%",
-                    sos: " "
-                }, 
-                {
-                    name: "Come zucchero filato",
-                    brand: "Levi's",
-                    prezzoA: "129.99 €",
-                    prezzoP: "29.99 €",
-                    img: "./img/3.webp",
-                    imgH: "./img/3b.webp",
-                    sconto: "30%",
-                    sos: ""
-                }, 
-                {
-                    name: 'TEE UNISEX',
-                    brand: "Levi's",
-                    prezzoA: "14.99 €",
-                    prezzoP: "29.99 €",
-                    img: "./img/4.webp",
-                    imgH: "./img/4b.webp",
-                    sconto: "50%",
-                    sos: " Sostenibilità"
-                }, 
-                {
-                    name: 'STRIPE BODICE',
-                    brand: "Maya Deluxe",
-                    prezzoA: "99.99 €",
-                    prezzoP: "",
-                    img: "./img/5.webp",
-                    imgH: "./img/5b.webp",
-                }, 
-                {
-                    name: 'MAGLIONE - BLACK',
-                    brand: "Espirit",
-                    prezzoA: "20.99 €",
-                    prezzoP: "",
-                    img: "./img/6.webp",
-                    imgH: "./img/6b.webp",
-                    sconto: "",
-                    sos: " Sostenibilità"
-                }, 
+            cards: productsData.products
+            // cards: [
+            //     {
+            //         name: 'RELAXED FIT TEE UNISEX',
+            //         brand: "Levi's",
+            //         prezzoA: "14.99 €",
+            //         prezzoP: "29.99 €",
+            //         img: "./img/1.webp",
+            //         imgH: "./img/1b.webp",
+            //         sconto: "50%",
+            //         sos: " Sostenibilità"
+            //     }, 
+            //     {
+            //         name: 'ROSES TEE',
+            //         brand: "Guess",
+            //         prezzoA: "20.99 €",
+            //         prezzoP: "29.99 €",
+            //         img: "./img/2.webp",
+            //         imgH: "./img/2b.webp",
+            //         sconto: "30%",
+            //         sos: " "
+            //     }, 
+            //     {
+            //         name: "Come zucchero filato",
+            //         brand: "Levi's",
+            //         prezzoA: "129.99 €",
+            //         prezzoP: "29.99 €",
+            //         img: "./img/3.webp",
+            //         imgH: "./img/3b.webp",
+            //         sconto: "30%",
+            //         sos: ""
+            //     }, 
+            //     {
+            //         name: 'TEE UNISEX',
+            //         brand: "Levi's",
+            //         prezzoA: "14.99 €",
+            //         prezzoP: "29.99 €",
+            //         img: "./img/4.webp",
+            //         imgH: "./img/4b.webp",
+            //         sconto: "50%",
+            //         sos: " Sostenibilità"
+            //     }, 
+            //     {
+            //         name: 'STRIPE BODICE',
+            //         brand: "Maya Deluxe",
+            //         prezzoA: "99.99 €",
+            //         prezzoP: "",
+            //         img: "./img/5.webp",
+            //         imgH: "./img/5b.webp",
+            //     }, 
+            //     {
+            //         name: 'MAGLIONE - BLACK',
+            //         brand: "Espirit",
+            //         prezzoA: "20.99 €",
+            //         prezzoP: "",
+            //         img: "./img/6.webp",
+            //         imgH: "./img/6b.webp",
+            //         sconto: "",
+            //         sos: " Sostenibilità"
+            //     }, 
 
 
-            ]
+            // ]
+        }
+    },
+    methods: {
+        getImagePath(img) {
+            return new URL(`../assets/img/${img}`, import.meta.url).href;
         }
     }
 }
@@ -75,8 +82,8 @@ export default {
         <div class="col-33" v-for="card in cards">
             <div class="content">
                 <div>
-                    <img class="main-img" :src="card.img" alt="Prodotto 1">
-                    <img class="hover-img" :src="card.imgH" alt="Prodotto1b">
+                    <img class="main-img" :src="getImagePath(card.frontImage)" alt="Prodotto 1">
+                    <img class="hover-img" :src="getImagePath(card.backImage)" alt="Prodotto1b">
                     <div class="absolute">
                         <span class=" sconti-label" v-if="card.sconto!==''">{{ card.sconto }}</span>
                         <span class="sostenibilità-label">{{ card.sos }}</span>
@@ -87,8 +94,8 @@ export default {
                     </div>
                     <p>{{ card.brand }}</p>
                     <h4>{{card.name}}</h4>
-                    <span class="prezzo-ora">{{ card.prezzoA }}</span>
-                    <span class="prezzo-prima">{{ card.prezzoP}}</span>
+                    <span class="prezzo-ora">{{ card.price }}</span>
+                    <span class="prezzo-prima" v-if="card.badges">{{ card.badges.value}}</span>
                 </div>
             </div>
         </div>
