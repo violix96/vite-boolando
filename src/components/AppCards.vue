@@ -50,8 +50,6 @@ export default {
                     prezzoP: "",
                     img: "./img/5.webp",
                     imgH: "./img/5b.webp",
-                    sconto: "50%",
-                    sos: " Sostenibilità"
                 }, 
                 {
                     name: 'MAGLIONE - BLACK',
